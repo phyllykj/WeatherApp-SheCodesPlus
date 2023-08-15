@@ -1,0 +1,251 @@
+.container {
+  border: 3px solid #00bbf0;
+  max-width: 100%;
+  padding: 20px;
+  width: 700px;
+  font-family: Grandstander, cursive;
+  color: white;
+  background-image: url(rainbow3.jpg);
+  background-size: 200%;
+  border-radius: 10px;
+}
+
+.citySearch {
+  max-width: 100%;
+  background-color: #430f58;
+  padding: 80px;
+  width: 700px;
+  font-family: Grandstander, cursive;
+}
+
+.search {
+  border-radius: 20px;
+}
+
+.placeholder {
+  color: blue;
+}
+
+button {
+  border-radius: 20px;
+  padding: 20px;
+  transition: all 150ms ease-in-out;
+  background-color: #430f58;
+  color: #7d7b90;
+}
+
+button:hover {
+  cursor: pointer;
+  color: #430f58;
+  background-color: #7d7b90;
+  opacity: 0.7;
+}
+
+#myLocation:hover {
+  cursor: pointer;
+  color: #7d7b90;
+  background-color: #430f58;
+  opacity: 0.7;
+}
+
+#london {
+  position: relative;
+  left: 35px;
+  top: 20px;
+}
+
+#KL {
+  position: relative;
+  left: 20px;
+  top: 20px;
+}
+
+#myLocation {
+  position: relative;
+  top: 20px;
+  right: 10px;
+  font-size: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
+  color: #430f58;
+  background-color: #7d7b90;
+}
+
+.col-8 {
+  position: relative;
+  left: 10px;
+  font-size: 30px;
+}
+.sub-button {
+  font-size: 20px;
+  position: relative;
+  right: 70px;
+  border-radius: 20px;
+}
+
+.search {
+  font-size: 18px;
+}
+
+.Day1,
+.Day2,
+.Day3,
+.Day4,
+.Day5 {
+  font-size: 70px;
+  line-height: 50px;
+  position: relative;
+  padding: 10px;
+}
+
+.Day3 {
+  left: 290px;
+  top: 20px;
+}
+
+.Day3name {
+  position: relative;
+  top: 20px;
+  right: -30px;
+}
+
+.Day2 {
+  left: 140px;
+  top: 30px;
+}
+
+.Day4 {
+  left: 40px;
+  top: 30px;
+}
+.Day2name {
+  position: relative;
+  left: 90px;
+  top: 30px;
+}
+.Day4name {
+  position: relative;
+  left: 10px;
+  top: 30px;
+}
+
+#currentTemp {
+  font-size: 60px;
+  position: relative;
+  left: 100px;
+  color: red;
+}
+
+a {
+  font-size: 20px;
+  color: #430f58;
+  position: relative;
+  bottom: 260px;
+  left: 390px;
+  text-decoration: none;
+  display: inline;
+}
+
+.Day5 {
+  left: 150px;
+}
+
+.Day1name {
+  position: relative;
+  right: 40px;
+}
+
+.Day5name {
+  position: relative;
+  left: 150px;
+}
+
+.lowTemp {
+  position: relative;
+  left: 125px;
+  bottom: 10px;
+  font-weight: bold;
+  color: #f7b71d;
+  font-size: 24px;
+}
+
+.currentWeather {
+  position: relative;
+  left: 55px;
+  font-size: 70px;
+  line-height: 50px;
+}
+
+.windspeed {
+  position: relative;
+  left: 90px;
+  transition: all 150ms ease-in-out;
+}
+.windspeed:hover {
+  transform: scale(1.5);
+}
+
+.rainChance {
+  position: relative;
+  right: -10px;
+  transition: all 150ms ease-in-out;
+}
+.rainChance:hover {
+  transform: scale(1.5);
+}
+
+.Day1name,
+.Day2name,
+.Day3name,
+.Day4name,
+.Day5name {
+  font-size: 14px;
+  text-align: center;
+  transition: all 150ms ease-in-out;
+}
+.Day1name:hover {
+  transform: scale(1.2);
+}
+.Day2name:hover {
+  transform: scale(1.2);
+}
+.Day3name:hover {
+  transform: scale(1.2);
+}
+.Day4name:hover {
+  transform: scale(1.2);
+}
+
+.Day5name:hover {
+  transform: scale(1.2);
+}
+
+.selectedCity {
+  position: relative;
+  left: 250px;
+  line-height: 10px;
+  font-size: 40px;
+  color: #430f58;
+}
+h2 {
+  position: relative;
+  left: 280px;
+  top: 20px;
+  font-size: 16px;
+  color: #430f58;
+}
+
+.timeNow {
+  position: relative;
+  left: 310px;
+  top: 20px;
+  font-size: 16px;
+  color: #430f58;
+}
+
+ul {
+  font-size: 12px;
+  text-align: center;
+  list-style-type: none;
+  padding: 0;
+}
