@@ -17,14 +17,14 @@ currentCityForm.addEventListener("submit", changeCity);
 function cityTemp(response) {
   let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#currentTemp");
-  currentTemp.innerHTML = `${temperature}°c`;
+  currentTemp.innerHTML = `${temperature}°`;
 }
 
 function myLocationTemp(response) {
   let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#currentTemp");
   let myLocation = document.querySelector("#selectedCity");
-  currentTemp.innerHTML = `${temperature}°c`;
+  currentTemp.innerHTML = `${temperature}°`;
   myLocation.innerHTML = "My Location";
 }
 
@@ -59,7 +59,7 @@ function KLTemp(response) {
   let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#currentTemp");
   let myLocation = document.querySelector("#selectedCity");
-  currentTemp.innerHTML = `${temperature}°c`;
+  currentTemp.innerHTML = `${temperature}°`;
   myLocation.innerHTML = "Kuala Lumpur";
 }
 let KLButton = document.querySelector("#KL");
@@ -78,7 +78,7 @@ function londonTemp(response) {
   let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#currentTemp");
   let myLocation = document.querySelector("#selectedCity");
-  currentTemp.innerHTML = `${temperature}°c`;
+  currentTemp.innerHTML = `${temperature}°`;
   myLocation.innerHTML = "London";
 }
 
@@ -89,7 +89,7 @@ function defaultCity(response) {
   let temperature = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#currentTemp");
   let defaultCity = document.querySelector("#selectedCity");
-  currentTemp.innerHTML = `${temperature}°c`;
+  currentTemp.innerHTML = `${temperature}°`;
   defaultCity.innerHTML = "Barcelona";
 }
 
