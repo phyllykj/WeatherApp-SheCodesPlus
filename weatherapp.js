@@ -8,23 +8,35 @@ function changeCity(event) {
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity}&appid=${key}&units=${units}`;
 
-  axios.get(`${apiUrl}`).then(cityTemp);
+  axios.get(`${apiUrl}`).then(cityWeather);
 }
 
 let currentCityForm = document.querySelector("#citySearch");
 currentCityForm.addEventListener("submit", changeCity);
 
-function cityTemp(response) {
+function cityWeather(response) {
   let temperature = Math.round(response.data.main.temp);
+  let windspeed = Math.round(response.data.wind.speed);
+  let humidity = Math.round(response.data.main.humidity);
+  let currentWindspeed = document.querySelector("#windSpeed");
+  let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   currentTemp.innerHTML = `${temperature}°`;
+  currentWindspeed.innerHTML = `${windspeed}km/h`;
+  currentHumidity.innerHTML = `${humidity}%`;
 }
 
 function myLocationTemp(response) {
   let temperature = Math.round(response.data.main.temp);
+  let windspeed = Math.round(response.data.wind.speed);
+  let humidity = Math.round(response.data.main.humidity);
+  let currentWindspeed = document.querySelector("#windSpeed");
+  let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let myLocation = document.querySelector("#selectedCity");
   currentTemp.innerHTML = `${temperature}°`;
+  currentWindspeed.innerHTML = `${windspeed}km/h`;
+  currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "My Location";
 }
 
@@ -57,9 +69,15 @@ function showKLWeather() {
 
 function KLTemp(response) {
   let temperature = Math.round(response.data.main.temp);
+  let windspeed = Math.round(response.data.wind.speed);
+  let humidity = Math.round(response.data.main.humidity);
+  let currentWindspeed = document.querySelector("#windSpeed");
+  let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let myLocation = document.querySelector("#selectedCity");
   currentTemp.innerHTML = `${temperature}°`;
+  currentWindspeed.innerHTML = `${windspeed}km/h`;
+  currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "Kuala Lumpur";
 }
 let KLButton = document.querySelector("#KL");
@@ -76,9 +94,15 @@ function showLondonWeather() {
 
 function londonTemp(response) {
   let temperature = Math.round(response.data.main.temp);
+  let windspeed = Math.round(response.data.wind.speed);
+  let humidity = Math.round(response.data.main.humidity);
+  let currentWindspeed = document.querySelector("#windSpeed");
+  let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let myLocation = document.querySelector("#selectedCity");
   currentTemp.innerHTML = `${temperature}°`;
+  currentWindspeed.innerHTML = `${windspeed}km/h`;
+  currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "London";
 }
 
@@ -87,9 +111,15 @@ londonButton.addEventListener("click", showLondonWeather);
 
 function defaultCity(response) {
   let temperature = Math.round(response.data.main.temp);
+  let windspeed = Math.round(response.data.wind.speed);
+  let humidity = Math.round(response.data.main.humidity);
+  let currentWindspeed = document.querySelector("#windSpeed");
+  let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let defaultCity = document.querySelector("#selectedCity");
   currentTemp.innerHTML = `${temperature}°`;
+  currentWindspeed.innerHTML = `${windspeed}km/h`;
+  currentHumidity.innerHTML = `${humidity}%`;
   defaultCity.innerHTML = "Barcelona";
 }
 
