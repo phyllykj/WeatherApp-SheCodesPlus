@@ -136,7 +136,7 @@ button:hover {
   color: red;
 }
 
-a {
+#tempChangeLinks {
   font-size: 20px;
   color: #430f58;
   position: relative;
