@@ -19,10 +19,12 @@ function cityWeather(response) {
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
   let low = Math.round(response.data.main.temp_min);
+  let description = response.data.weather.main;
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let lowestTemp = document.querySelector("#lowTemp");
+  let descriptionEmoji = document.querySelector("#currentWeather");
 
   lowestTemp.innerHTML = `${low}°`;
   currentTemp.innerHTML = `${temperature}°`;
@@ -35,6 +37,12 @@ function cityWeather(response) {
   } else {
     currentTemp.classList.remove("cold-high");
     lowestTemp.classList.remove("cold-low");
+  }
+
+  if (description === "Rain") {
+    descriptionEmoji.innerHTML = "🌧";
+  } else if (description === "Clouds") {
+    descriptionEmoji.innerHTML = "☁️";
   }
 }
 
