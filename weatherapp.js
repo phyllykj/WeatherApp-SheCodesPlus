@@ -18,22 +18,30 @@ function cityWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
+  let low = Math.round(response.data.main.temp_min);
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
+  let lowestTemp = document.querySelector("#lowTemp");
+
+  lowestTemp.innerHTML = `${low}°`;
   currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
 }
 
-function myLocationTemp(response) {
+function myLocationWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
+  let low = Math.round(response.data.main.temp_min);
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let myLocation = document.querySelector("#selectedCity");
+  let lowestTemp = document.querySelector("#lowTemp");
+
+  lowestTemp.innerHTML = `${low}°`;
   currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
@@ -47,7 +55,7 @@ function showPosition(position) {
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=${units}`;
 
-  axios.get(`${apiUrl}`).then(myLocationTemp);
+  axios.get(`${apiUrl}`).then(myLocationWeather);
 }
 
 function getPosition(event) {
@@ -64,17 +72,21 @@ function showKLWeather() {
   let cityname = "Kuala Lumpur";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${key}&units=${units}`;
 
-  axios.get(`${apiUrl}`).then(KLTemp);
+  axios.get(`${apiUrl}`).then(KLWeather);
 }
 
-function KLTemp(response) {
+function KLWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
+  let low = Math.round(response.data.main.temp_min);
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let myLocation = document.querySelector("#selectedCity");
+  let lowestTemp = document.querySelector("#lowTemp");
+
+  lowestTemp.innerHTML = `${low}°`;
   currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
@@ -89,17 +101,21 @@ function showLondonWeather() {
   let cityname = "London";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${key}&units=${units}`;
 
-  axios.get(`${apiUrl}`).then(londonTemp);
+  axios.get(`${apiUrl}`).then(londonWeather);
 }
 
-function londonTemp(response) {
+function londonWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
+  let low = Math.round(response.data.main.temp_min);
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let myLocation = document.querySelector("#selectedCity");
+  let lowestTemp = document.querySelector("#lowTemp");
+
+  lowestTemp.innerHTML = `${low}°`;
   currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
@@ -113,10 +129,14 @@ function defaultCity(response) {
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
+  let low = Math.round(response.data.main.temp_min);
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let defaultCity = document.querySelector("#selectedCity");
+  let lowestTemp = document.querySelector("#lowTemp");
+
+  lowestTemp.innerHTML = `${low}°`;
   currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;

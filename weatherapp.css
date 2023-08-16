@@ -160,7 +160,7 @@ button:hover {
   left: 150px;
 }
 
-.lowTemp {
+#lowTemp {
   position: relative;
   left: 125px;
   bottom: 10px;
