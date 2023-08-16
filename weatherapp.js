@@ -15,21 +15,23 @@ let currentCityForm = document.querySelector("#citySearch");
 currentCityForm.addEventListener("submit", changeCity);
 
 function cityWeather(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
   let low = Math.round(response.data.main.temp_min);
-  let description = response.data.weather.main;
+  let weatherDescription = response.data.weather[0].description;
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let lowestTemp = document.querySelector("#lowTemp");
-  let descriptionEmoji = document.querySelector("#currentWeather");
+  let description = document.querySelector("h6");
 
   lowestTemp.innerHTML = `${low}°`;
   currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
+  description.innerHTML = `"${weatherDescription}"`;
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -38,12 +40,6 @@ function cityWeather(response) {
     currentTemp.classList.remove("cold-high");
     lowestTemp.classList.remove("cold-low");
   }
-
-  if (description === "Rain") {
-    descriptionEmoji.innerHTML = "🌧";
-  } else if (description === "Clouds") {
-    descriptionEmoji.innerHTML = "☁️";
-  }
 }
 
 function myLocationWeather(response) {
@@ -51,17 +47,20 @@ function myLocationWeather(response) {
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
   let low = Math.round(response.data.main.temp_min);
+  let weatherDescription = response.data.weather[0].description;
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let myLocation = document.querySelector("#selectedCity");
   let lowestTemp = document.querySelector("#lowTemp");
+  let description = document.querySelector("h6");
 
   lowestTemp.innerHTML = `${low}°`;
   currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "My Location";
+  description.innerHTML = `"${weatherDescription}"`;
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -104,17 +103,20 @@ function KLWeather(response) {
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
   let low = Math.round(response.data.main.temp_min);
+  let weatherDescription = response.data.weather[0].description;
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let myLocation = document.querySelector("#selectedCity");
   let lowestTemp = document.querySelector("#lowTemp");
+  let description = document.querySelector("h6");
 
   lowestTemp.innerHTML = `${low}°`;
   currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "Kuala Lumpur";
+  description.innerHTML = `"${weatherDescription}"`;
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -142,17 +144,20 @@ function londonWeather(response) {
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
   let low = Math.round(response.data.main.temp_min);
+  let weatherDescription = response.data.weather[0].description;
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let myLocation = document.querySelector("#selectedCity");
   let lowestTemp = document.querySelector("#lowTemp");
+  let description = document.querySelector("h6");
 
   lowestTemp.innerHTML = `${low}°`;
   currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "London";
+  description.innerHTML = `"${weatherDescription}"`;
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -171,17 +176,20 @@ function defaultCity(response) {
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
   let low = Math.round(response.data.main.temp_min);
+  let weatherDescription = response.data.weather[0].description;
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let defaultCity = document.querySelector("#selectedCity");
   let lowestTemp = document.querySelector("#lowTemp");
+  let description = document.querySelector("h6");
 
   lowestTemp.innerHTML = `${low}°`;
   currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   defaultCity.innerHTML = "Barcelona";
+  description.innerHTML = `"${weatherDescription}"`;
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");

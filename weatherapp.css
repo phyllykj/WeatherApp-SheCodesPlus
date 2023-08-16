@@ -1,3 +1,6 @@
+body {
+  background-color: #e99e4a;
+}
 .container {
   border: 3px solid #00bbf0;
   max-width: 100%;
@@ -139,7 +142,7 @@ button:hover {
 #tempChangeLinks {
   font-size: 20px;
   position: relative;
-  bottom: 260px;
+  bottom: 270px;
   left: 390px;
 }
 #fahrenheit-link {
@@ -170,7 +173,7 @@ button:hover {
 .lowTemp {
   position: relative;
   left: 125px;
-  bottom: 10px;
+  top: 5px;
   font-weight: bold;
   color: #f7b71d;
   font-size: 24px;
@@ -178,7 +181,8 @@ button:hover {
 
 .currentWeather {
   position: relative;
-  left: 55px;
+  left: 60px;
+  top: 20px;
   font-size: 70px;
   line-height: 50px;
 }
@@ -263,4 +267,12 @@ ul {
 
 .cold-low {
   color: #00bbf0;
+}
+
+h6 {
+  color: #430f58;
+  position: relative;
+  bottom: 310px;
+  left: 300px;
+  box-sizing: border-box;
 }
