@@ -129,7 +129,7 @@ button:hover {
   top: 30px;
 }
 
-#currentTemp {
+.currentTemp {
   font-size: 60px;
   position: relative;
   left: 100px;
@@ -138,14 +138,21 @@ button:hover {
 
 #tempChangeLinks {
   font-size: 20px;
-  color: #430f58;
   position: relative;
   bottom: 260px;
   left: 390px;
+}
+#fahrenheit-link {
+  color: #430f58;
   text-decoration: none;
-  display: inline;
+  position: relative;
+  left: 10px;
 }
 
+#celcius-link {
+  color: #430f58;
+  text-decoration: none;
+}
 .Day5 {
   left: 150px;
 }
@@ -160,7 +167,7 @@ button:hover {
   left: 150px;
 }
 
-#lowTemp {
+.lowTemp {
   position: relative;
   left: 125px;
   bottom: 10px;
@@ -248,4 +255,12 @@ ul {
   text-align: center;
   list-style-type: none;
   padding: 0;
+}
+
+.cold-high {
+  color: blue;
+}
+
+.cold-low {
+  color: #00bbf0;
 }

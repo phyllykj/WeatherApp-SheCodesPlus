@@ -28,6 +28,14 @@ function cityWeather(response) {
   currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
+
+  if (temperature <= 18) {
+    currentTemp.classList.add("cold-high");
+    lowestTemp.classList.add("cold-low");
+  } else {
+    currentTemp.classList.remove("cold-high");
+    lowestTemp.classList.remove("cold-low");
+  }
 }
 
 function myLocationWeather(response) {
@@ -46,6 +54,14 @@ function myLocationWeather(response) {
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "My Location";
+
+  if (temperature <= 18) {
+    currentTemp.classList.add("cold-high");
+    lowestTemp.classList.add("cold-low");
+  } else {
+    currentTemp.classList.remove("cold-high");
+    lowestTemp.classList.remove("cold-low");
+  }
 }
 
 function showPosition(position) {
@@ -91,7 +107,16 @@ function KLWeather(response) {
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "Kuala Lumpur";
+
+  if (temperature <= 18) {
+    currentTemp.classList.add("cold-high");
+    lowestTemp.classList.add("cold-low");
+  } else {
+    currentTemp.classList.remove("cold-high");
+    lowestTemp.classList.remove("cold-low");
+  }
 }
+
 let KLButton = document.querySelector("#KL");
 KLButton.addEventListener("click", showKLWeather);
 
@@ -120,6 +145,14 @@ function londonWeather(response) {
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "London";
+
+  if (temperature <= 18) {
+    currentTemp.classList.add("cold-high");
+    lowestTemp.classList.add("cold-low");
+  } else {
+    currentTemp.classList.remove("cold-high");
+    lowestTemp.classList.remove("cold-low");
+  }
 }
 
 let londonButton = document.querySelector("#london");
@@ -141,6 +174,14 @@ function defaultCity(response) {
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   defaultCity.innerHTML = "Barcelona";
+
+  if (temperature <= 18) {
+    currentTemp.classList.add("cold-high");
+    lowestTemp.classList.add("cold-low");
+  } else {
+    currentTemp.classList.remove("cold-high");
+    lowestTemp.classList.remove("cold-low");
+  }
 }
 
 function search(city) {
