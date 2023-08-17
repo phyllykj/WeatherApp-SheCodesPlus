@@ -21,12 +21,13 @@ function cityWeather(response) {
   let humidity = Math.round(response.data.main.humidity);
   let low = Math.round(response.data.main.temp_min);
   let weatherDescription = response.data.weather[0].description;
+  let weatherIconId = response.data.weather[0].icon;
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let lowestTemp = document.querySelector("#lowTemp");
   let description = document.querySelector("h6");
-
+  let weatherIcon = document.querySelector("#currentWeather");
   lowestTemp.innerHTML = `${low}°`;
   currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
@@ -40,6 +41,26 @@ function cityWeather(response) {
     currentTemp.classList.remove("cold-high");
     lowestTemp.classList.remove("cold-low");
   }
+
+  if (weatherIconId === "01d" || "01n") {
+    weatherIcon.innerHTML = "☀️";
+  } else if (weatherIconId === "02d" || "02n") {
+    weatherIcon.innerHTML = "🌤";
+  } else if (weatherIconId === "03d" || "03n") {
+    weatherIcon.innerHTML === "🌥";
+  } else if (weatherIconId === "04d" || "04n") {
+    weatherIcon.innerHTML === "☁️";
+  } else if (weatherIconId === "09d" || "09n") {
+    weatherIcon.innerHTML === "🌧";
+  } else if (weatherIconId === "10d" || "10n") {
+    weatherIcon.innerHTML === "🌦";
+  } else if (weatherIconId === "11d" || "11n") {
+    weatherIcon.innerHTML === "⛈";
+  } else if (weatherIconId === "13d" || "13n") {
+    weatherIcon.innerHTML === "❄️";
+  } else if (weatherIconId === "50d" || "50n") {
+    weatherIcon.innerHTML === " 🌬";
+  } else weatherIcon.innerHTML === "🌥";
 }
 
 function myLocationWeather(response) {
