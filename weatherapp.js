@@ -29,10 +29,11 @@ function cityWeather(response) {
   let description = document.querySelector("h6");
   let weatherIcon = document.querySelector("#currentWeather");
   lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}°`;
+  currentTemp.innerHTML = `${temperature}`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   description.innerHTML = `"${weatherDescription}"`;
+  celciusTemperature = Math.round(response.data.main.temp);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -42,17 +43,29 @@ function cityWeather(response) {
     lowestTemp.classList.remove("cold-low");
   }
 
-  if (weatherIconId === "01d" || weatherIconId === "01n") {
+  if (weatherIconId === "01d") {
     weatherIcon.innerHTML = "☀️";
-  } else if (weatherIconId === "02d" || weatherIconId === "02n") {
+  } else if (weatherIconId === "01n") {
+    weatherIcon.innerHTML = "🌑";
+  } else if (weatherIconId === "02d") {
     weatherIcon.innerHTML = "🌤";
-  } else if (weatherIconId === "03d" || weatherIconId === "03n") {
+  } else if (weatherIconId === "03d") {
     weatherIcon.innerHTML = "🌥";
-  } else if (weatherIconId === "04d" || weatherIconId === "04n") {
+  } else if (weatherIconId === "04d") {
     weatherIcon.innerHTML = "☁️";
-  } else if (weatherIconId === "09d" || weatherIconId === "09n") {
+  } else if (
+    weatherIconId === "02n" ||
+    weatherIconId === "03n" ||
+    weatherIconId === "04n"
+  ) {
+    weatherIcon.innerHTML = "☁️";
+  } else if (
+    weatherIconId === "09d" ||
+    weatherIconId === "09n" ||
+    weatherIconId === "10n"
+  ) {
     weatherIcon.innerHTML = "🌧";
-  } else if (weatherIconId === "10d" || weatherIconId === "10n") {
+  } else if (weatherIconId === "10d") {
     weatherIcon.innerHTML = "🌦";
   } else if (weatherIconId === "11d" || weatherIconId === "11n") {
     weatherIcon.innerHTML = "⛈";
@@ -79,11 +92,12 @@ function myLocationWeather(response) {
   let weatherIcon = document.querySelector("#currentWeather");
 
   lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}°`;
+  currentTemp.innerHTML = `${temperature}`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "My Location";
   description.innerHTML = `"${weatherDescription}"`;
+  celciusTemperature = Math.round(response.data.main.temp);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -93,17 +107,29 @@ function myLocationWeather(response) {
     lowestTemp.classList.remove("cold-low");
   }
 
-  if (weatherIconId === "01d" || weatherIconId === "01n") {
+  if (weatherIconId === "01d") {
     weatherIcon.innerHTML = "☀️";
-  } else if (weatherIconId === "02d" || weatherIconId === "02n") {
+  } else if (weatherIconId === "01n") {
+    weatherIcon.innerHTML = "🌑";
+  } else if (weatherIconId === "02d") {
     weatherIcon.innerHTML = "🌤";
-  } else if (weatherIconId === "03d" || weatherIconId === "03n") {
+  } else if (weatherIconId === "03d") {
     weatherIcon.innerHTML = "🌥";
-  } else if (weatherIconId === "04d" || weatherIconId === "04n") {
+  } else if (weatherIconId === "04d") {
     weatherIcon.innerHTML = "☁️";
-  } else if (weatherIconId === "09d" || weatherIconId === "09n") {
+  } else if (
+    weatherIconId === "02n" ||
+    weatherIconId === "03n" ||
+    weatherIconId === "04n"
+  ) {
+    weatherIcon.innerHTML = "☁️";
+  } else if (
+    weatherIconId === "09d" ||
+    weatherIconId === "09n" ||
+    weatherIconId === "10n"
+  ) {
     weatherIcon.innerHTML = "🌧";
-  } else if (weatherIconId === "10d" || weatherIconId === "10n") {
+  } else if (weatherIconId === "10d") {
     weatherIcon.innerHTML = "🌦";
   } else if (weatherIconId === "11d" || weatherIconId === "11n") {
     weatherIcon.innerHTML = "⛈";
@@ -157,11 +183,12 @@ function KLWeather(response) {
   let weatherIcon = document.querySelector("#currentWeather");
 
   lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}°`;
+  currentTemp.innerHTML = `${temperature}`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "Kuala Lumpur";
   description.innerHTML = `"${weatherDescription}"`;
+  celciusTemperature = Math.round(response.data.main.temp);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -171,17 +198,29 @@ function KLWeather(response) {
     lowestTemp.classList.remove("cold-low");
   }
 
-  if (weatherIconId === "01d" || weatherIconId === "01n") {
+  if (weatherIconId === "01d") {
     weatherIcon.innerHTML = "☀️";
-  } else if (weatherIconId === "02d" || weatherIconId === "02n") {
+  } else if (weatherIconId === "01n") {
+    weatherIcon.innerHTML = "🌑";
+  } else if (weatherIconId === "02d") {
     weatherIcon.innerHTML = "🌤";
-  } else if (weatherIconId === "03d" || weatherIconId === "03n") {
+  } else if (weatherIconId === "03d") {
     weatherIcon.innerHTML = "🌥";
-  } else if (weatherIconId === "04d" || weatherIconId === "04n") {
+  } else if (weatherIconId === "04d") {
     weatherIcon.innerHTML = "☁️";
-  } else if (weatherIconId === "09d" || weatherIconId === "09n") {
+  } else if (
+    weatherIconId === "02n" ||
+    weatherIconId === "03n" ||
+    weatherIconId === "04n"
+  ) {
+    weatherIcon.innerHTML = "☁️";
+  } else if (
+    weatherIconId === "09d" ||
+    weatherIconId === "09n" ||
+    weatherIconId === "10n"
+  ) {
     weatherIcon.innerHTML = "🌧";
-  } else if (weatherIconId === "10d" || weatherIconId === "10n") {
+  } else if (weatherIconId === "10d") {
     weatherIcon.innerHTML = "🌦";
   } else if (weatherIconId === "11d" || weatherIconId === "11n") {
     weatherIcon.innerHTML = "⛈";
@@ -220,11 +259,12 @@ function londonWeather(response) {
   let weatherIcon = document.querySelector("#currentWeather");
 
   lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}°`;
+  currentTemp.innerHTML = `${temperature}`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "London";
   description.innerHTML = `"${weatherDescription}"`;
+  celciusTemperature = Math.round(response.data.main.temp);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -234,17 +274,29 @@ function londonWeather(response) {
     lowestTemp.classList.remove("cold-low");
   }
 
-  if (weatherIconId === "01d" || weatherIconId === "01n") {
+  if (weatherIconId === "01d") {
     weatherIcon.innerHTML = "☀️";
-  } else if (weatherIconId === "02d" || weatherIconId === "02n") {
+  } else if (weatherIconId === "01n") {
+    weatherIcon.innerHTML = "🌑";
+  } else if (weatherIconId === "02d") {
     weatherIcon.innerHTML = "🌤";
-  } else if (weatherIconId === "03d" || weatherIconId === "03n") {
+  } else if (weatherIconId === "03d") {
     weatherIcon.innerHTML = "🌥";
-  } else if (weatherIconId === "04d" || weatherIconId === "04n") {
+  } else if (weatherIconId === "04d") {
     weatherIcon.innerHTML = "☁️";
-  } else if (weatherIconId === "09d" || weatherIconId === "09n") {
+  } else if (
+    weatherIconId === "02n" ||
+    weatherIconId === "03n" ||
+    weatherIconId === "04n"
+  ) {
+    weatherIcon.innerHTML = "☁️";
+  } else if (
+    weatherIconId === "09d" ||
+    weatherIconId === "09n" ||
+    weatherIconId === "10n"
+  ) {
     weatherIcon.innerHTML = "🌧";
-  } else if (weatherIconId === "10d" || weatherIconId === "10n") {
+  } else if (weatherIconId === "10d") {
     weatherIcon.innerHTML = "🌦";
   } else if (weatherIconId === "11d" || weatherIconId === "11n") {
     weatherIcon.innerHTML = "⛈";
@@ -274,11 +326,12 @@ function defaultCity(response) {
   let weatherIcon = document.querySelector("#currentWeather");
 
   lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}°`;
+  currentTemp.innerHTML = `${temperature}`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   defaultCity.innerHTML = "Barcelona";
   description.innerHTML = `"${weatherDescription}"`;
+  celciusTemperature = Math.round(response.data.main.temp);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -288,17 +341,29 @@ function defaultCity(response) {
     lowestTemp.classList.remove("cold-low");
   }
 
-  if (weatherIconId === "01d" || weatherIconId === "01n") {
+  if (weatherIconId === "01d") {
     weatherIcon.innerHTML = "☀️";
-  } else if (weatherIconId === "02d" || weatherIconId === "02n") {
+  } else if (weatherIconId === "01n") {
+    weatherIcon.innerHTML = "🌑";
+  } else if (weatherIconId === "02d") {
     weatherIcon.innerHTML = "🌤";
-  } else if (weatherIconId === "03d" || weatherIconId === "03n") {
+  } else if (weatherIconId === "03d") {
     weatherIcon.innerHTML = "🌥";
-  } else if (weatherIconId === "04d" || weatherIconId === "04n") {
+  } else if (weatherIconId === "04d") {
     weatherIcon.innerHTML = "☁️";
-  } else if (weatherIconId === "09d" || weatherIconId === "09n") {
+  } else if (
+    weatherIconId === "02n" ||
+    weatherIconId === "03n" ||
+    weatherIconId === "04n"
+  ) {
+    weatherIcon.innerHTML = "☁️";
+  } else if (
+    weatherIconId === "09d" ||
+    weatherIconId === "09n" ||
+    weatherIconId === "10n"
+  ) {
     weatherIcon.innerHTML = "🌧";
-  } else if (weatherIconId === "10d" || weatherIconId === "10n") {
+  } else if (weatherIconId === "10d") {
     weatherIcon.innerHTML = "🌦";
   } else if (weatherIconId === "11d" || weatherIconId === "11n") {
     weatherIcon.innerHTML = "⛈";
@@ -316,6 +381,31 @@ function search(city) {
 
   axios.get(`${apiUrl}`).then(defaultCity);
 }
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let temp = document.querySelector("#currentTemp");
+  let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
+  temp.innerHTML = Math.round(fahrenheitTemp);
+}
+
+function showCelciusTemp(event) {
+  event.preventDefault();
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temp = document.querySelector("#currentTemp");
+  temp.innerHTML = celciusTemperature;
+}
+
+let celciusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", showCelciusTemp);
 
 search("Barcelona");
 

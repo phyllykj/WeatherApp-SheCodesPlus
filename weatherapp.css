@@ -141,23 +141,34 @@ button:hover {
   color: red;
 }
 
-#tempChangeLinks {
+.tempChangeLinks {
   font-size: 20px;
   position: relative;
   bottom: 270px;
   left: 390px;
 }
+
 #fahrenheit-link {
-  color: #430f58;
-  text-decoration: none;
   position: relative;
   left: 10px;
+  color: #e99e4a;
+  text-decoration: underline;
+  cursor: hand;
 }
-
 #celcius-link {
+  position: relative;
+  color: #e99e4a;
+  text-decoration: underline;
+  cursor: hand;
+}
+#celcius-link.active,
+#fahrenheit-link.active {
   color: #430f58;
   text-decoration: none;
+  cursor: default;
+  transform: scale(1.5);
 }
+
 .Day5 {
   left: 150px;
 }
