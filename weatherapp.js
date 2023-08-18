@@ -34,6 +34,7 @@ function cityWeather(response) {
   currentHumidity.innerHTML = `${humidity}%`;
   description.innerHTML = `"${weatherDescription}"`;
   celciusTemperature = Math.round(response.data.main.temp);
+  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -98,6 +99,7 @@ function myLocationWeather(response) {
   myLocation.innerHTML = "My Location";
   description.innerHTML = `"${weatherDescription}"`;
   celciusTemperature = Math.round(response.data.main.temp);
+  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -189,6 +191,7 @@ function KLWeather(response) {
   myLocation.innerHTML = "Kuala Lumpur";
   description.innerHTML = `"${weatherDescription}"`;
   celciusTemperature = Math.round(response.data.main.temp);
+  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -265,6 +268,7 @@ function londonWeather(response) {
   myLocation.innerHTML = "London";
   description.innerHTML = `"${weatherDescription}"`;
   celciusTemperature = Math.round(response.data.main.temp);
+  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -332,6 +336,7 @@ function defaultCity(response) {
   defaultCity.innerHTML = "Barcelona";
   description.innerHTML = `"${weatherDescription}"`;
   celciusTemperature = Math.round(response.data.main.temp);
+  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -387,8 +392,11 @@ function showFahrenheitTemp(event) {
   celciusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   let temp = document.querySelector("#currentTemp");
+  let tempLow = document.querySelector("#lowTemp");
   let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
+  let fahrenheitTempLow = (celciusTemperatureLow * 9) / 5 + 32;
   temp.innerHTML = Math.round(fahrenheitTemp);
+  tempLow.innerHTML = Math.round(fahrenheitTempLow);
 }
 
 function showCelciusTemp(event) {
@@ -396,10 +404,13 @@ function showCelciusTemp(event) {
   celciusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let temp = document.querySelector("#currentTemp");
+  let tempLow = document.querySelector("#lowTemp");
   temp.innerHTML = celciusTemperature;
+  tempLow.innerHTML = celciusTemperatureLow;
 }
 
 let celciusTemperature = null;
+let celciusTemperatureLow = null;
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", showFahrenheitTemp);

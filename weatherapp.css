@@ -135,17 +135,17 @@ button:hover {
 }
 
 .currentTemp {
-  font-size: 60px;
+  font-size: 50px;
   position: relative;
   left: 100px;
   color: red;
 }
 
 .tempChangeLinks {
-  font-size: 20px;
+  font-size: 26px;
   position: relative;
-  bottom: 270px;
-  left: 390px;
+  bottom: 250px;
+  left: 370px;
 }
 
 #fahrenheit-link {
@@ -279,13 +279,13 @@ ul {
 }
 
 .cold-low {
-  color: #00bbf0;
+  color: #0092ca;
 }
 
 h6 {
   color: #430f58;
   position: relative;
-  bottom: 310px;
+  bottom: 285px;
   left: 300px;
   box-sizing: border-box;
 }
