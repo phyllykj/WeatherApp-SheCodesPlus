@@ -42,25 +42,25 @@ function cityWeather(response) {
     lowestTemp.classList.remove("cold-low");
   }
 
-  if (weatherIconId === "01d" || "01n") {
+  if (weatherIconId === "01d" || weatherIconId === "01n") {
     weatherIcon.innerHTML = "☀️";
-  } else if (weatherIconId === "02d" || "02n") {
+  } else if (weatherIconId === "02d" || weatherIconId === "02n") {
     weatherIcon.innerHTML = "🌤";
-  } else if (weatherIconId === "03d" || "03n") {
-    weatherIcon.innerHTML === "🌥";
-  } else if (weatherIconId === "04d" || "04n") {
-    weatherIcon.innerHTML === "☁️";
-  } else if (weatherIconId === "09d" || "09n") {
-    weatherIcon.innerHTML === "🌧";
-  } else if (weatherIconId === "10d" || "10n") {
-    weatherIcon.innerHTML === "🌦";
-  } else if (weatherIconId === "11d" || "11n") {
-    weatherIcon.innerHTML === "⛈";
-  } else if (weatherIconId === "13d" || "13n") {
-    weatherIcon.innerHTML === "❄️";
-  } else if (weatherIconId === "50d" || "50n") {
-    weatherIcon.innerHTML === " 🌬";
-  } else weatherIcon.innerHTML === "🌥";
+  } else if (weatherIconId === "03d" || weatherIconId === "03n") {
+    weatherIcon.innerHTML = "🌥";
+  } else if (weatherIconId === "04d" || weatherIconId === "04n") {
+    weatherIcon.innerHTML = "☁️";
+  } else if (weatherIconId === "09d" || weatherIconId === "09n") {
+    weatherIcon.innerHTML = "🌧";
+  } else if (weatherIconId === "10d" || weatherIconId === "10n") {
+    weatherIcon.innerHTML = "🌦";
+  } else if (weatherIconId === "11d" || weatherIconId === "11n") {
+    weatherIcon.innerHTML = "⛈";
+  } else if (weatherIconId === "13d" || weatherIconId === "13n") {
+    weatherIcon.innerHTML = "❄️";
+  } else if (weatherIconId === "50d" || weatherIconId === "50n") {
+    weatherIcon.innerHTML = " 🌬";
+  } else weatherIcon.innerHTML = "🌥";
 }
 
 function myLocationWeather(response) {
