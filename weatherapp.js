@@ -48,8 +48,18 @@ function getIcon(weatherIconId, weatherIcon) {
   } else weatherIcon.innerHTML = "🌥";
 }
 
+function displayForecast(response) {
+  console.log(response.data.daily);
+}
+function getForecast(coordinates) {
+  let key = "501f8b61699f32b67fc25b5d269da312";
+  let units = "metric";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${key}&units=${units}`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function cityWeather(response) {
-  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
@@ -79,6 +89,8 @@ function cityWeather(response) {
   }
 
   getIcon(weatherIconId, weatherIcon);
+
+  getForecast(response.data.coord);
 }
 
 function myLocationWeather(response) {
@@ -185,7 +197,7 @@ function showLondonWeather() {
   let units = "metric";
   let cityname = "London";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${key}&units=${units}`;
-
+  console.log(apiUrl);
   axios.get(`${apiUrl}`).then(londonWeather);
 }
 
