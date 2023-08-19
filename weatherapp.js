@@ -14,36 +14,7 @@ function changeCity(event) {
 let currentCityForm = document.querySelector("#citySearch");
 currentCityForm.addEventListener("submit", changeCity);
 
-function cityWeather(response) {
-  console.log(response.data);
-  let temperature = Math.round(response.data.main.temp);
-  let windspeed = Math.round(response.data.wind.speed);
-  let humidity = Math.round(response.data.main.humidity);
-  let low = Math.round(response.data.main.temp_min);
-  let weatherDescription = response.data.weather[0].description;
-  let weatherIconId = response.data.weather[0].icon;
-  let currentWindspeed = document.querySelector("#windSpeed");
-  let currentHumidity = document.querySelector("#humidityPercentage");
-  let currentTemp = document.querySelector("#currentTemp");
-  let lowestTemp = document.querySelector("#lowTemp");
-  let description = document.querySelector("h6");
-  let weatherIcon = document.querySelector("#currentWeather");
-  lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}`;
-  currentWindspeed.innerHTML = `${windspeed}km/h`;
-  currentHumidity.innerHTML = `${humidity}%`;
-  description.innerHTML = `"${weatherDescription}"`;
-  celciusTemperature = Math.round(response.data.main.temp);
-  celciusTemperatureLow = Math.round(response.data.main.temp_min);
-
-  if (temperature <= 18) {
-    currentTemp.classList.add("cold-high");
-    lowestTemp.classList.add("cold-low");
-  } else {
-    currentTemp.classList.remove("cold-high");
-    lowestTemp.classList.remove("cold-low");
-  }
-
+function getIcon(weatherIconId, weatherIcon) {
   if (weatherIconId === "01d") {
     weatherIcon.innerHTML = "☀️";
   } else if (weatherIconId === "01n") {
@@ -77,6 +48,39 @@ function cityWeather(response) {
   } else weatherIcon.innerHTML = "🌥";
 }
 
+function cityWeather(response) {
+  console.log(response.data);
+  let temperature = Math.round(response.data.main.temp);
+  let windspeed = Math.round(response.data.wind.speed);
+  let humidity = Math.round(response.data.main.humidity);
+  let low = Math.round(response.data.main.temp_min);
+  let weatherDescription = response.data.weather[0].description;
+  let weatherIconId = response.data.weather[0].icon;
+  let currentWindspeed = document.querySelector("#windSpeed");
+  let currentHumidity = document.querySelector("#humidityPercentage");
+  let currentTemp = document.querySelector("#currentTemp");
+  let lowestTemp = document.querySelector("#lowTemp");
+  let description = document.querySelector("h6");
+  let weatherIcon = document.querySelector("#currentWeather");
+  lowestTemp.innerHTML = `${low}°`;
+  currentTemp.innerHTML = `${temperature}`;
+  currentWindspeed.innerHTML = `${windspeed}km/h`;
+  currentHumidity.innerHTML = `${humidity}%`;
+  description.innerHTML = `"${weatherDescription}"`;
+  celciusTemperature = Math.round(response.data.main.temp);
+  celciusTemperatureLow = Math.round(response.data.main.temp_min);
+
+  if (temperature <= 18) {
+    currentTemp.classList.add("cold-high");
+    lowestTemp.classList.add("cold-low");
+  } else {
+    currentTemp.classList.remove("cold-high");
+    lowestTemp.classList.remove("cold-low");
+  }
+
+  getIcon(weatherIconId, weatherIcon);
+}
+
 function myLocationWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
@@ -108,38 +112,7 @@ function myLocationWeather(response) {
     currentTemp.classList.remove("cold-high");
     lowestTemp.classList.remove("cold-low");
   }
-
-  if (weatherIconId === "01d") {
-    weatherIcon.innerHTML = "☀️";
-  } else if (weatherIconId === "01n") {
-    weatherIcon.innerHTML = "🌑";
-  } else if (weatherIconId === "02d") {
-    weatherIcon.innerHTML = "🌤";
-  } else if (weatherIconId === "03d") {
-    weatherIcon.innerHTML = "🌥";
-  } else if (weatherIconId === "04d") {
-    weatherIcon.innerHTML = "☁️";
-  } else if (
-    weatherIconId === "02n" ||
-    weatherIconId === "03n" ||
-    weatherIconId === "04n"
-  ) {
-    weatherIcon.innerHTML = "☁️";
-  } else if (
-    weatherIconId === "09d" ||
-    weatherIconId === "09n" ||
-    weatherIconId === "10n"
-  ) {
-    weatherIcon.innerHTML = "🌧";
-  } else if (weatherIconId === "10d") {
-    weatherIcon.innerHTML = "🌦";
-  } else if (weatherIconId === "11d" || weatherIconId === "11n") {
-    weatherIcon.innerHTML = "⛈";
-  } else if (weatherIconId === "13d" || weatherIconId === "13n") {
-    weatherIcon.innerHTML = "❄️";
-  } else if (weatherIconId === "50d" || weatherIconId === "50n") {
-    weatherIcon.innerHTML = " 🌬";
-  } else weatherIcon.innerHTML = "🌥";
+  getIcon(weatherIconId, weatherIcon);
 }
 
 function showPosition(position) {
@@ -201,37 +174,7 @@ function KLWeather(response) {
     lowestTemp.classList.remove("cold-low");
   }
 
-  if (weatherIconId === "01d") {
-    weatherIcon.innerHTML = "☀️";
-  } else if (weatherIconId === "01n") {
-    weatherIcon.innerHTML = "🌑";
-  } else if (weatherIconId === "02d") {
-    weatherIcon.innerHTML = "🌤";
-  } else if (weatherIconId === "03d") {
-    weatherIcon.innerHTML = "🌥";
-  } else if (weatherIconId === "04d") {
-    weatherIcon.innerHTML = "☁️";
-  } else if (
-    weatherIconId === "02n" ||
-    weatherIconId === "03n" ||
-    weatherIconId === "04n"
-  ) {
-    weatherIcon.innerHTML = "☁️";
-  } else if (
-    weatherIconId === "09d" ||
-    weatherIconId === "09n" ||
-    weatherIconId === "10n"
-  ) {
-    weatherIcon.innerHTML = "🌧";
-  } else if (weatherIconId === "10d") {
-    weatherIcon.innerHTML = "🌦";
-  } else if (weatherIconId === "11d" || weatherIconId === "11n") {
-    weatherIcon.innerHTML = "⛈";
-  } else if (weatherIconId === "13d" || weatherIconId === "13n") {
-    weatherIcon.innerHTML = "❄️";
-  } else if (weatherIconId === "50d" || weatherIconId === "50n") {
-    weatherIcon.innerHTML = " 🌬";
-  } else weatherIcon.innerHTML = "🌥";
+  getIcon(weatherIconId, weatherIcon);
 }
 
 let KLButton = document.querySelector("#KL");
@@ -278,37 +221,7 @@ function londonWeather(response) {
     lowestTemp.classList.remove("cold-low");
   }
 
-  if (weatherIconId === "01d") {
-    weatherIcon.innerHTML = "☀️";
-  } else if (weatherIconId === "01n") {
-    weatherIcon.innerHTML = "🌑";
-  } else if (weatherIconId === "02d") {
-    weatherIcon.innerHTML = "🌤";
-  } else if (weatherIconId === "03d") {
-    weatherIcon.innerHTML = "🌥";
-  } else if (weatherIconId === "04d") {
-    weatherIcon.innerHTML = "☁️";
-  } else if (
-    weatherIconId === "02n" ||
-    weatherIconId === "03n" ||
-    weatherIconId === "04n"
-  ) {
-    weatherIcon.innerHTML = "☁️";
-  } else if (
-    weatherIconId === "09d" ||
-    weatherIconId === "09n" ||
-    weatherIconId === "10n"
-  ) {
-    weatherIcon.innerHTML = "🌧";
-  } else if (weatherIconId === "10d") {
-    weatherIcon.innerHTML = "🌦";
-  } else if (weatherIconId === "11d" || weatherIconId === "11n") {
-    weatherIcon.innerHTML = "⛈";
-  } else if (weatherIconId === "13d" || weatherIconId === "13n") {
-    weatherIcon.innerHTML = "❄️";
-  } else if (weatherIconId === "50d" || weatherIconId === "50n") {
-    weatherIcon.innerHTML = " 🌬";
-  } else weatherIcon.innerHTML = "🌥";
+  getIcon(weatherIconId, weatherIcon);
 }
 
 let londonButton = document.querySelector("#london");
@@ -346,37 +259,7 @@ function defaultCity(response) {
     lowestTemp.classList.remove("cold-low");
   }
 
-  if (weatherIconId === "01d") {
-    weatherIcon.innerHTML = "☀️";
-  } else if (weatherIconId === "01n") {
-    weatherIcon.innerHTML = "🌑";
-  } else if (weatherIconId === "02d") {
-    weatherIcon.innerHTML = "🌤";
-  } else if (weatherIconId === "03d") {
-    weatherIcon.innerHTML = "🌥";
-  } else if (weatherIconId === "04d") {
-    weatherIcon.innerHTML = "☁️";
-  } else if (
-    weatherIconId === "02n" ||
-    weatherIconId === "03n" ||
-    weatherIconId === "04n"
-  ) {
-    weatherIcon.innerHTML = "☁️";
-  } else if (
-    weatherIconId === "09d" ||
-    weatherIconId === "09n" ||
-    weatherIconId === "10n"
-  ) {
-    weatherIcon.innerHTML = "🌧";
-  } else if (weatherIconId === "10d") {
-    weatherIcon.innerHTML = "🌦";
-  } else if (weatherIconId === "11d" || weatherIconId === "11n") {
-    weatherIcon.innerHTML = "⛈";
-  } else if (weatherIconId === "13d" || weatherIconId === "13n") {
-    weatherIcon.innerHTML = "❄️";
-  } else if (weatherIconId === "50d" || weatherIconId === "50n") {
-    weatherIcon.innerHTML = " 🌬";
-  } else weatherIcon.innerHTML = "🌥";
+  getIcon(weatherIconId, weatherIcon);
 }
 
 function search(city) {
