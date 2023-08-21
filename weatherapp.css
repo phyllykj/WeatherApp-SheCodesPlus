@@ -108,7 +108,7 @@ button:hover {
   top: 20px;
 }
 
-.Day3name {
+.forecast-day-2 {
   position: relative;
   top: 20px;
   right: -30px;
@@ -123,12 +123,12 @@ button:hover {
   left: 40px;
   top: 30px;
 }
-.Day2name {
+.forecast-day-1 {
   position: relative;
   left: 90px;
   top: 30px;
 }
-.Day4name {
+.forecast-day-3 {
   position: relative;
   left: 10px;
   top: 30px;
@@ -173,12 +173,12 @@ button:hover {
   left: 150px;
 }
 
-.Day1name {
+.forecast-day-0 {
   position: relative;
   right: 40px;
 }
 
-.Day5name {
+.forecast-day-4 {
   position: relative;
   left: 150px;
 }
@@ -218,29 +218,29 @@ button:hover {
   transform: scale(1.5);
 }
 
-.Day1name,
-.Day2name,
-.Day3name,
-.Day4name,
-.Day5name {
+.forecast-day-0,
+.forecast-day-1,
+.forecast-day-2,
+.forecast-day-3,
+.forecast-day-4 {
   font-size: 14px;
   text-align: center;
   transition: all 150ms ease-in-out;
 }
-.Day1name:hover {
+.forecast-day-0:hover {
   transform: scale(1.2);
 }
-.Day2name:hover {
+.forecast-day-1:hover {
   transform: scale(1.2);
 }
-.Day3name:hover {
+.forecast-day-2:hover {
   transform: scale(1.2);
 }
-.Day4name:hover {
+.forecast-day-3:hover {
   transform: scale(1.2);
 }
 
-.Day5name:hover {
+.forecast-day-4:hover {
   transform: scale(1.2);
 }
 

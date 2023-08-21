@@ -4,7 +4,7 @@ function changeCity(event) {
   let chosenCity = `${searchInput.value}`;
   let currentCity = document.querySelector("#selectedCity");
   currentCity.innerHTML = chosenCity;
-  let key = "501f8b61699f32b67fc25b5d269da312";
+  let key = "b2d9fa1f2b35557e4615dd5fab218834";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity}&appid=${key}&units=${units}`;
 
@@ -13,6 +13,17 @@ function changeCity(event) {
 
 let currentCityForm = document.querySelector("#citySearch");
 currentCityForm.addEventListener("submit", changeCity);
+
+function displayForecast(response) {
+  console.log(response.data.daily);
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let key = "b2d9fa1f2b35557e4615dd5fab218834";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${key}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function getIcon(weatherIconId, weatherIcon) {
   if (weatherIconId === "01d") {
@@ -48,17 +59,6 @@ function getIcon(weatherIconId, weatherIcon) {
   } else weatherIcon.innerHTML = "🌥";
 }
 
-function displayForecast(response) {
-  console.log(response.data.daily);
-}
-function getForecast(coordinates) {
-  let key = "501f8b61699f32b67fc25b5d269da312";
-  let units = "metric";
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${key}&units=${units}`;
-
-  axios.get(apiUrl).then(displayForecast);
-}
-
 function cityWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
@@ -89,7 +89,6 @@ function cityWeather(response) {
   }
 
   getIcon(weatherIconId, weatherIcon);
-
   getForecast(response.data.coord);
 }
 
@@ -130,7 +129,7 @@ function myLocationWeather(response) {
 function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let key = "501f8b61699f32b67fc25b5d269da312";
+  let key = "b2d9fa1f2b35557e4615dd5fab218834";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}&units=${units}`;
 
@@ -146,7 +145,7 @@ let myLocationButton = document.querySelector("#myLocation");
 myLocationButton.addEventListener("click", getPosition);
 
 function showKLWeather() {
-  let key = "501f8b61699f32b67fc25b5d269da312";
+  let key = "b2d9fa1f2b35557e4615dd5fab218834";
   let units = "metric";
   let cityname = "Kuala Lumpur";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${key}&units=${units}`;
@@ -193,7 +192,7 @@ let KLButton = document.querySelector("#KL");
 KLButton.addEventListener("click", showKLWeather);
 
 function showLondonWeather() {
-  let key = "501f8b61699f32b67fc25b5d269da312";
+  let key = "b2d9fa1f2b35557e4615dd5fab218834";
   let units = "metric";
   let cityname = "London";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityname}&appid=${key}&units=${units}`;
@@ -275,7 +274,7 @@ function defaultCity(response) {
 }
 
 function search(city) {
-  let key = "501f8b61699f32b67fc25b5d269da312";
+  let key = "b2d9fa1f2b35557e4615dd5fab218834";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${units}`;
 
