@@ -16,8 +16,24 @@ currentCityForm.addEventListener("submit", changeCity);
 
 function displayForecast(response) {
   console.log(response.data.daily);
-}
+  let forecast = response.data.daily;
 
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      let forecastDayEl = document.querySelector(`#forecast-day-${index}`);
+      forecastDayEl.innerHTML = forecastDay.dt;
+      console.log(forecastDay.dt);
+      let forecastDayMinTempEl = document.querySelector(
+        `#forecast-day-${index}-min-temp`
+      );
+      forecastDayMinTempEl.innerHTML = forecastDay.temp.min;
+      let forecastDayMaxTempEl = document.querySelector(
+        `#forecast-day-${index}-max-temp`
+      );
+      forecastDayMaxTempEl.innerHTML = forecastDay.temp.max;
+    }
+  });
+}
 function getForecast(coordinates) {
   console.log(coordinates);
   let key = "b2d9fa1f2b35557e4615dd5fab218834";
