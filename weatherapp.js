@@ -26,16 +26,15 @@ function displayForecast(response) {
       let forecastDayMinTempEl = document.querySelector(
         `#forecast-day-${index}-min-temp`
       );
-      forecastDayMinTempEl.innerHTML = forecastDay.temp.min;
+      forecastDayMinTempEl.innerHTML = Math.round(forecastDay.temp.min);
       let forecastDayMaxTempEl = document.querySelector(
         `#forecast-day-${index}-max-temp`
       );
-      forecastDayMaxTempEl.innerHTML = forecastDay.temp.max;
+      forecastDayMaxTempEl.innerHTML = Math.round(forecastDay.temp.max);
     }
   });
 }
 function getForecast(coordinates) {
-  console.log(coordinates);
   let key = "b2d9fa1f2b35557e4615dd5fab218834";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${key}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
@@ -140,6 +139,7 @@ function myLocationWeather(response) {
     lowestTemp.classList.remove("cold-low");
   }
   getIcon(weatherIconId, weatherIcon);
+  getForecast(response.data.coord);
 }
 
 function showPosition(position) {
@@ -202,6 +202,7 @@ function KLWeather(response) {
   }
 
   getIcon(weatherIconId, weatherIcon);
+  getForecast(response.data.coord);
 }
 
 let KLButton = document.querySelector("#KL");
@@ -249,6 +250,7 @@ function londonWeather(response) {
   }
 
   getIcon(weatherIconId, weatherIcon);
+  getForecast(response.data.coord);
 }
 
 let londonButton = document.querySelector("#london");
@@ -287,6 +289,7 @@ function defaultCity(response) {
   }
 
   getIcon(weatherIconId, weatherIcon);
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -299,23 +302,28 @@ function search(city) {
 
 function showFahrenheitTemp(event) {
   event.preventDefault();
+
   celciusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  let temp = document.querySelector("#currentTemp");
+  let tempHigh = document.querySelector("#currentTemp");
   let tempLow = document.querySelector("#lowTemp");
+
   let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
   let fahrenheitTempLow = (celciusTemperatureLow * 9) / 5 + 32;
-  temp.innerHTML = Math.round(fahrenheitTemp);
+
+  tempHigh.innerHTML = Math.round(fahrenheitTemp);
   tempLow.innerHTML = Math.round(fahrenheitTempLow);
 }
 
 function showCelciusTemp(event) {
   event.preventDefault();
+  console.log(forecastDay.temp.max);
   celciusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
-  let temp = document.querySelector("#currentTemp");
+  let tempHigh = document.querySelector("#currentTemp");
   let tempLow = document.querySelector("#lowTemp");
-  temp.innerHTML = celciusTemperature;
+
+  tempHigh.innerHTML = celciusTemperature;
   tempLow.innerHTML = celciusTemperatureLow;
 }
 
