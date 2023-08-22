@@ -317,7 +317,7 @@ function showFahrenheitTemp(event) {
 
 function showCelciusTemp(event) {
   event.preventDefault();
-  console.log(forecastDay.temp.max);
+
   celciusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   let tempHigh = document.querySelector("#currentTemp");
