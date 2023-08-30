@@ -8,7 +8,7 @@ body {
   margin-bottom: 20px;
   padding: 20px;
   width: 700px;
-  font-family: Grandstander, cursive;
+  font-family: "Sniglet", cursive;
   color: white;
   background-image: url(rainbow3.jpg);
   background-size: 200%;
@@ -20,7 +20,6 @@ body {
   background-color: #430f58;
   padding: 80px;
   width: 700px;
-  font-family: Grandstander, cursive;
 }
 
 .search {
@@ -37,6 +36,7 @@ button {
   transition: all 150ms ease-in-out;
   background-color: #430f58;
   color: #7d7b90;
+  font-family: "Sniglet", cursive;
 }
 
 button:hover {
@@ -226,6 +226,7 @@ button:hover {
   font-size: 14px;
   text-align: center;
   transition: all 150ms ease-in-out;
+  font-family: "Sniglet", cursive;
 }
 .forecast-day-0:hover {
   transform: scale(1.2);
