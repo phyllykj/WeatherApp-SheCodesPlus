@@ -75,6 +75,7 @@ function displayForecast(response) {
 
     let forecastIconId = forecastDay.weather[0].icon;
     let forecastIcon = document.querySelector(`#forecast-icon-${index}`);
+
     getForecastIcon(forecastIconId, forecastIcon);
   });
 }

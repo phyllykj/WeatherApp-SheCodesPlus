@@ -42,14 +42,14 @@ button {
 button:hover {
   cursor: pointer;
   color: #430f58;
-  background-color: #7d7b90;
+  background-color: #ca8e76;
   opacity: 0.7;
 }
 
 #myLocation:hover {
   cursor: pointer;
-  color: #7d7b90;
-  background-color: #430f58;
+  color: #430f58;
+  background-color: #7d7b90;
   opacity: 0.7;
 }
 
@@ -73,7 +73,7 @@ button:hover {
   padding-right: 30px;
   padding-left: 30px;
   color: #430f58;
-  background-color: #7d7b90;
+  background-color: #ca8e76;
 }
 
 .col-8 {
@@ -138,7 +138,7 @@ button:hover {
   font-size: 50px;
   position: relative;
   left: 100px;
-  color: red;
+  color: #d63447;
 }
 
 .tempChangeLinks {
@@ -275,7 +275,7 @@ ul {
 }
 
 .cold-high {
-  color: blue;
+  color: #005792;
 }
 
 .cold-low {
