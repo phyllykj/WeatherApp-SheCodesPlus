@@ -7,7 +7,7 @@ function changeCity(event) {
   let key = "b2d9fa1f2b35557e4615dd5fab218834";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity}&appid=${key}&units=${units}`;
-
+  console.log(apiUrl);
   axios.get(`${apiUrl}`).then(cityWeather);
 }
 
@@ -21,10 +21,44 @@ function formatDay(timestamp) {
 
   return days[day];
 }
+
+function getForecastIcon(forecastIconId, forecastIcon) {
+  if (forecastIconId === "01d") {
+    forecastIcon.innerHTML = "☀️";
+  } else if (forecastIconId === "01n") {
+    forecastIcon.innerHTML = "🌑";
+  } else if (forecastIconId === "02d") {
+    forecastIcon.innerHTML = "🌤";
+  } else if (forecastIconId === "03d") {
+    forecastIcon.innerHTML = "🌥";
+  } else if (forecastIconId === "04d") {
+    forecastIcon.innerHTML = "☁️";
+  } else if (
+    forecastIconId === "02n" ||
+    forecastIconId === "03n" ||
+    forecastIconId === "04n"
+  ) {
+    forecastIcon.innerHTML = "☁️";
+  } else if (
+    forecastIconId === "09d" ||
+    forecastIconId === "09n" ||
+    forecastIconId === "10n"
+  ) {
+    forecastIcon.innerHTML = "🌧";
+  } else if (forecastIconId === "10d") {
+    forecastIcon.innerHTML = "🌦";
+  } else if (forecastIconId === "11d" || forecastIconId === "11n") {
+    forecastIcon.innerHTML = "⛈";
+  } else if (forecastIconId === "13d" || forecastIconId === "13n") {
+    weatherIcon.innerHTML = "❄️";
+  } else if (forecastIconId === "50d" || forecastIconId === "50n") {
+    forecastIcon.innerHTML = " 🌬";
+  } else forecastIcon.innerHTML = "🌥";
+}
+
 function displayForecast(response) {
   console.log(response.data.daily);
   let forecast = response.data.daily;
-
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
       let forecastDayEl = document.querySelector(`#forecast-day-${index}`);
@@ -38,6 +72,10 @@ function displayForecast(response) {
       );
       forecastDayMaxTempEl.innerHTML = Math.round(forecastDay.temp.max);
     }
+
+    let forecastIconId = forecastDay.weather[0].icon;
+    let forecastIcon = document.querySelector(`#forecast-icon-${index}`);
+    getForecastIcon(forecastIconId, forecastIcon);
   });
 }
 function getForecast(coordinates) {
