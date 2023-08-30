@@ -286,7 +286,20 @@ ul {
 h6 {
   color: #430f58;
   position: relative;
-  bottom: 285px;
+  bottom: 240px;
   left: 300px;
-  box-sizing: border-box;
+}
+
+.night-theme-cont {
+  background-image: url(nightcity2.jpg);
+  color: #7d7b90;
+  border: 3px solid #430f58;
+}
+
+.night-theme-body {
+  background-color: #566d99;
+}
+
+.night-theme-h6 {
+  color: #8594e4;
 }

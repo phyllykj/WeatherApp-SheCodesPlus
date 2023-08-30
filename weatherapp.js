@@ -133,7 +133,7 @@ function cityWeather(response) {
   let description = document.querySelector("h6");
   let weatherIcon = document.querySelector("#currentWeather");
   lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}`;
+  currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   description.innerHTML = `"${weatherDescription}"`;
@@ -168,7 +168,7 @@ function myLocationWeather(response) {
   let weatherIcon = document.querySelector("#currentWeather");
 
   lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}`;
+  currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "My Location";
@@ -230,7 +230,7 @@ function KLWeather(response) {
   let weatherIcon = document.querySelector("#currentWeather");
 
   lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}`;
+  currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "Kuala Lumpur";
@@ -278,7 +278,7 @@ function londonWeather(response) {
   let weatherIcon = document.querySelector("#currentWeather");
 
   lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}`;
+  currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "London";
@@ -317,7 +317,7 @@ function defaultCity(response) {
   let weatherIcon = document.querySelector("#currentWeather");
 
   lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}`;
+  currentTemp.innerHTML = `${temperature}°`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   defaultCity.innerHTML = "Barcelona";
@@ -344,42 +344,6 @@ function search(city) {
 
   axios.get(`${apiUrl}`).then(defaultCity);
 }
-
-function showFahrenheitTemp(event) {
-  event.preventDefault();
-
-  celciusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let tempHigh = document.querySelector("#currentTemp");
-  let tempLow = document.querySelector("#lowTemp");
-
-  let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
-  let fahrenheitTempLow = (celciusTemperatureLow * 9) / 5 + 32;
-
-  tempHigh.innerHTML = Math.round(fahrenheitTemp);
-  tempLow.innerHTML = Math.round(fahrenheitTempLow);
-}
-
-function showCelciusTemp(event) {
-  event.preventDefault();
-
-  celciusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let tempHigh = document.querySelector("#currentTemp");
-  let tempLow = document.querySelector("#lowTemp");
-
-  tempHigh.innerHTML = celciusTemperature;
-  tempLow.innerHTML = celciusTemperatureLow;
-}
-
-let celciusTemperature = null;
-let celciusTemperatureLow = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", showFahrenheitTemp);
-
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", showCelciusTemp);
 
 search("Barcelona");
 
@@ -422,3 +386,18 @@ h2.innerHTML = formattedDate;
 
 let formattedTime = `${hours} : ${minutes}`;
 timeNow.innerHTML = formattedTime;
+
+function nightTheme() {
+  let container = document.querySelector(".container");
+  let body = document.querySelector("body");
+
+  if (hours >= 19 || hours < 6) {
+    container.classList.add("night-theme-cont");
+    body.classList.add("night-theme-body");
+  } else {
+    container.classList.remove("night-theme-cont");
+    body.classList.remove("night-theme-body");
+  }
+}
+
+nightTheme();
