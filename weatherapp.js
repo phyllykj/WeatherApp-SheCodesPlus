@@ -14,6 +14,13 @@ function changeCity(event) {
 let currentCityForm = document.querySelector("#citySearch");
 currentCityForm.addEventListener("submit", changeCity);
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+
+  return days[day];
+}
 function displayForecast(response) {
   console.log(response.data.daily);
   let forecast = response.data.daily;
@@ -21,8 +28,7 @@ function displayForecast(response) {
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
       let forecastDayEl = document.querySelector(`#forecast-day-${index}`);
-      forecastDayEl.innerHTML = forecastDay.dt;
-      console.log(forecastDay.dt);
+      forecastDayEl.innerHTML = `${formatDay(forecastDay.dt)}`;
       let forecastDayMinTempEl = document.querySelector(
         `#forecast-day-${index}-min-temp`
       );
