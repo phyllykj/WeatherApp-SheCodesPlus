@@ -132,11 +132,13 @@ function cityWeather(response) {
   let lowestTemp = document.querySelector("#lowTemp");
   let description = document.querySelector("h6");
   let weatherIcon = document.querySelector("#currentWeather");
-  lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}°`;
+  lowestTemp.innerHTML = `${low}`;
+  currentTemp.innerHTML = `${temperature}`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   description.innerHTML = `"${weatherDescription}"`;
+  celciusTemperature = Math.round(response.data.main.temp);
+  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -165,12 +167,14 @@ function myLocationWeather(response) {
   let description = document.querySelector("h6");
   let weatherIcon = document.querySelector("#currentWeather");
 
-  lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}°`;
+  lowestTemp.innerHTML = `${low}`;
+  currentTemp.innerHTML = `${temperature}`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "My Location";
   description.innerHTML = `"${weatherDescription}"`;
+  celciusTemperature = Math.round(response.data.main.temp);
+  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -225,12 +229,14 @@ function KLWeather(response) {
   let description = document.querySelector("h6");
   let weatherIcon = document.querySelector("#currentWeather");
 
-  lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}°`;
+  lowestTemp.innerHTML = `${low}`;
+  currentTemp.innerHTML = `${temperature}`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "Kuala Lumpur";
   description.innerHTML = `"${weatherDescription}"`;
+  celciusTemperature = Math.round(response.data.main.temp);
+  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -271,12 +277,14 @@ function londonWeather(response) {
   let description = document.querySelector("h6");
   let weatherIcon = document.querySelector("#currentWeather");
 
-  lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}°`;
+  lowestTemp.innerHTML = `${low}`;
+  currentTemp.innerHTML = `${temperature}`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "London";
   description.innerHTML = `"${weatherDescription}"`;
+  celciusTemperature = Math.round(response.data.main.temp);
+  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -308,12 +316,14 @@ function defaultCity(response) {
   let description = document.querySelector("h6");
   let weatherIcon = document.querySelector("#currentWeather");
 
-  lowestTemp.innerHTML = `${low}°`;
-  currentTemp.innerHTML = `${temperature}°`;
+  lowestTemp.innerHTML = `${low}`;
+  currentTemp.innerHTML = `${temperature}`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   defaultCity.innerHTML = "Barcelona";
   description.innerHTML = `"${weatherDescription}"`;
+  celciusTemperature = Math.round(response.data.main.temp);
+  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -334,6 +344,42 @@ function search(city) {
 
   axios.get(`${apiUrl}`).then(defaultCity);
 }
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+
+  celciusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let tempHigh = document.querySelector("#currentTemp");
+  let tempLow = document.querySelector("#lowTemp");
+
+  let fahrenheitTemp = (celciusTemperature * 9) / 5 + 32;
+  let fahrenheitTempLow = (celciusTemperatureLow * 9) / 5 + 32;
+
+  tempHigh.innerHTML = Math.round(fahrenheitTemp);
+  tempLow.innerHTML = Math.round(fahrenheitTempLow);
+}
+
+function showCelciusTemp(event) {
+  event.preventDefault();
+
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let tempHigh = document.querySelector("#currentTemp");
+  let tempLow = document.querySelector("#lowTemp");
+
+  tempHigh.innerHTML = celciusTemperature;
+  tempLow.innerHTML = celciusTemperatureLow;
+}
+
+let celciusTemperature = null;
+let celciusTemperatureLow = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", showCelciusTemp);
 
 search("Barcelona");
 

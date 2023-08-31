@@ -277,7 +277,7 @@ ul {
 
 .link {
   position: relative;
-  top: 40px;
+  bottom: 30px;
 }
 
 .cold-high {
@@ -291,7 +291,7 @@ ul {
 h6 {
   color: #430f58;
   position: relative;
-  bottom: 265px;
+  bottom: 310px;
   left: 300px;
 }
 
@@ -337,4 +337,31 @@ h6 {
 .night-theme #myLocation:hover {
   background-color: #27296d;
   color: #8594e4;
+}
+
+.night-theme #fahrenheit-link {
+  position: relative;
+  left: 10px;
+  color: #6643b5;
+  text-decoration: underline;
+  cursor: hand;
+}
+.night-theme #celcius-link {
+  position: relative;
+  color: #6643b5;
+  text-decoration: underline;
+  cursor: hand;
+}
+.night-theme #celcius-link.active {
+  color: #8594e4;
+  text-decoration: none;
+  cursor: default;
+  transform: scale(1.5);
+}
+
+.night-theme #fahrenheit-link.active {
+  color: #8594e4;
+  text-decoration: none;
+  cursor: default;
+  transform: scale(1.5);
 }
