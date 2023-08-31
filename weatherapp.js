@@ -390,13 +390,25 @@ timeNow.innerHTML = formattedTime;
 function nightTheme() {
   let container = document.querySelector(".container");
   let body = document.querySelector("body");
+  let h6 = document.querySelector("h6");
+  let selectedCity = document.querySelector(".selectedCity");
+  let timeNow = document.querySelector(".timeNow");
+  let h2 = document.querySelector("h2");
 
   if (hours >= 19 || hours < 6) {
-    container.classList.add("night-theme-cont");
-    body.classList.add("night-theme-body");
+    container.classList.add("night-theme");
+    body.classList.add("night-theme");
+    h6.classList.add("night-theme");
+    h2.classList.add("night-theme");
+    selectedCity.classList.add("night-theme");
+    timeNow.classList.add("night-theme");
   } else {
-    container.classList.remove("night-theme-cont");
-    body.classList.remove("night-theme-body");
+    container.classList.remove("night-theme");
+    body.classList.remove("night-theme");
+    h6.classList.remove("night-theme");
+    selectedCity.classList.remove("night-theme");
+    timeNow.classList.remove("night-theme");
+    h2.classList.remove("night-theme");
   }
 }
 

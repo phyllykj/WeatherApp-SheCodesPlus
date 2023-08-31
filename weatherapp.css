@@ -48,8 +48,8 @@ button:hover {
 
 #myLocation:hover {
   cursor: pointer;
-  color: #430f58;
-  background-color: #7d7b90;
+  color: white;
+  background-color: #430f58;
   opacity: 0.7;
 }
 
@@ -275,6 +275,11 @@ ul {
   padding: 0;
 }
 
+.link {
+  position: relative;
+  top: 40px;
+}
+
 .cold-high {
   color: #005792;
 }
@@ -286,20 +291,50 @@ ul {
 h6 {
   color: #430f58;
   position: relative;
-  bottom: 240px;
+  bottom: 255px;
   left: 300px;
 }
 
-.night-theme-cont {
+.night-theme .body {
+  background-color: #566d99;
+}
+
+.night-theme .container {
   background-image: url(nightcity2.jpg);
   color: #7d7b90;
   border: 3px solid #430f58;
 }
 
-.night-theme-body {
-  background-color: #566d99;
+.night-theme .selectedCity {
+  color: #8594e4;
 }
 
-.night-theme-h6 {
+.night-theme .timeNow {
+  color: #8594e4;
+}
+
+.night-theme h2 {
+  color: #8594e4;
+}
+
+.night-theme h6 {
+  color: #8594e4;
+}
+.night-theme button {
+  color: purple;
+  background-color: #27296d;
+}
+
+.night-theme #myLocation {
+  background-color: #9fb8d5;
+}
+
+.night-theme button:hover {
+  background-color: #9fb8d5;
+  color: #27296d;
+}
+
+.night-theme #myLocation:hover {
+  background-color: #27296d;
   color: #8594e4;
 }
