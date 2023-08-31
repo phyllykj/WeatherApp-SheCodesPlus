@@ -26,7 +26,7 @@ function getForecastIcon(forecastIconId, forecastIcon) {
   if (forecastIconId === "01d") {
     forecastIcon.innerHTML = "☀️";
   } else if (forecastIconId === "01n") {
-    forecastIcon.innerHTML = "🌑";
+    forecastIcon.innerHTML = "🌕";
   } else if (forecastIconId === "02d") {
     forecastIcon.innerHTML = "🌤";
   } else if (forecastIconId === "03d") {
@@ -89,7 +89,7 @@ function getIcon(weatherIconId, weatherIcon) {
   if (weatherIconId === "01d") {
     weatherIcon.innerHTML = "☀️";
   } else if (weatherIconId === "01n") {
-    weatherIcon.innerHTML = "🌑";
+    weatherIcon.innerHTML = "🌕";
   } else if (weatherIconId === "02d") {
     weatherIcon.innerHTML = "🌤";
   } else if (weatherIconId === "03d") {
@@ -137,8 +137,6 @@ function cityWeather(response) {
   currentWindspeed.innerHTML = `${windspeed}km/h`;
   currentHumidity.innerHTML = `${humidity}%`;
   description.innerHTML = `"${weatherDescription}"`;
-  celciusTemperature = Math.round(response.data.main.temp);
-  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -173,8 +171,6 @@ function myLocationWeather(response) {
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "My Location";
   description.innerHTML = `"${weatherDescription}"`;
-  celciusTemperature = Math.round(response.data.main.temp);
-  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -235,8 +231,6 @@ function KLWeather(response) {
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "Kuala Lumpur";
   description.innerHTML = `"${weatherDescription}"`;
-  celciusTemperature = Math.round(response.data.main.temp);
-  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -283,8 +277,6 @@ function londonWeather(response) {
   currentHumidity.innerHTML = `${humidity}%`;
   myLocation.innerHTML = "London";
   description.innerHTML = `"${weatherDescription}"`;
-  celciusTemperature = Math.round(response.data.main.temp);
-  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -322,8 +314,6 @@ function defaultCity(response) {
   currentHumidity.innerHTML = `${humidity}%`;
   defaultCity.innerHTML = "Barcelona";
   description.innerHTML = `"${weatherDescription}"`;
-  celciusTemperature = Math.round(response.data.main.temp);
-  celciusTemperatureLow = Math.round(response.data.main.temp_min);
 
   if (temperature <= 18) {
     currentTemp.classList.add("cold-high");
@@ -395,7 +385,7 @@ function nightTheme() {
   let timeNow = document.querySelector(".timeNow");
   let h2 = document.querySelector("h2");
 
-  if (hours >= 16 || hours < 6) {
+  if (hours >= 19 || hours < 6) {
     container.classList.add("night-theme");
     body.classList.add("night-theme");
     h6.classList.add("night-theme");

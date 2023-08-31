@@ -254,17 +254,17 @@ button:hover {
 }
 h2 {
   position: relative;
-  left: 280px;
-  top: 20px;
-  font-size: 16px;
+  left: 30px;
+  top: 30px;
+  font-size: 20px;
   color: #430f58;
 }
 
 .timeNow {
   position: relative;
-  left: 310px;
+  left: 80px;
   top: 20px;
-  font-size: 16px;
+  font-size: 20px;
   color: #430f58;
 }
 
@@ -291,7 +291,7 @@ ul {
 h6 {
   color: #430f58;
   position: relative;
-  bottom: 255px;
+  bottom: 265px;
   left: 300px;
 }
 
