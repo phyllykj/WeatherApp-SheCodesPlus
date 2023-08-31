@@ -395,7 +395,7 @@ function nightTheme() {
   let timeNow = document.querySelector(".timeNow");
   let h2 = document.querySelector("h2");
 
-  if (hours >= 19 || hours < 6) {
+  if (hours >= 16 || hours < 6) {
     container.classList.add("night-theme");
     body.classList.add("night-theme");
     h6.classList.add("night-theme");

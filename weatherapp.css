@@ -295,14 +295,14 @@ h6 {
   left: 300px;
 }
 
-.night-theme .body {
+.night-theme {
   background-color: #566d99;
 }
 
 .night-theme .container {
   background-image: url(nightcity2.jpg);
   color: #7d7b90;
-  border: 3px solid #430f58;
+  border: 3px solid #6643b5;
 }
 
 .night-theme .selectedCity {
