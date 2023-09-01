@@ -104,14 +104,14 @@ button:hover {
 }
 
 .Day3 {
-  left: 290px;
+  left: 310px;
   top: 20px;
 }
 
 .forecast-day-2 {
   position: relative;
   top: 20px;
-  right: -30px;
+  right: -40px;
 }
 
 .Day2 {
@@ -120,7 +120,7 @@ button:hover {
 }
 
 .Day4 {
-  left: 40px;
+  left: 60px;
   top: 30px;
 }
 .forecast-day-1 {
@@ -170,7 +170,11 @@ button:hover {
 }
 
 .Day5 {
-  left: 150px;
+  left: 110px;
+}
+
+.Day1 {
+  left: 20px;
 }
 
 .forecast-day-0 {
@@ -180,7 +184,7 @@ button:hover {
 
 .forecast-day-4 {
   position: relative;
-  left: 150px;
+  left: 105px;
 }
 
 .lowTemp {
@@ -255,7 +259,7 @@ button:hover {
 h2 {
   position: relative;
   left: 30px;
-  top: 30px;
+  top: 20px;
   font-size: 20px;
   color: #430f58;
 }
@@ -263,7 +267,7 @@ h2 {
 .timeNow {
   position: relative;
   left: 80px;
-  top: 20px;
+  top: 10px;
   font-size: 20px;
   color: #430f58;
 }
@@ -277,7 +281,7 @@ ul {
 
 .link {
   position: relative;
-  bottom: 30px;
+  bottom: 50px;
 }
 
 .cold-high {
@@ -291,8 +295,9 @@ ul {
 h6 {
   color: #430f58;
   position: relative;
-  bottom: 310px;
-  left: 300px;
+  bottom: 345px;
+  left: 630px;
+  font-family: "Sniglet", cursive;
 }
 
 .night-theme {
@@ -307,18 +312,22 @@ h6 {
 
 .night-theme .selectedCity {
   color: #8594e4;
+  background-color: none;
 }
 
 .night-theme .timeNow {
   color: #8594e4;
+  background-color: none;
 }
 
 .night-theme h2 {
   color: #8594e4;
+  background-color: none;
 }
 
 .night-theme h6 {
   color: #8594e4;
+  background-color: none;
 }
 .night-theme button {
   color: purple;
