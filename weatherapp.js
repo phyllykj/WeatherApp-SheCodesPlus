@@ -7,7 +7,6 @@ function changeCity(event) {
   let key = "b2d9fa1f2b35557e4615dd5fab218834";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${chosenCity}&appid=${key}&units=${units}`;
-  console.log(apiUrl);
   axios.get(`${apiUrl}`).then(cityWeather);
 }
 
@@ -57,7 +56,6 @@ function getForecastIcon(forecastIconId, forecastIcon) {
 }
 
 function displayForecast(response) {
-  console.log(response.data.daily);
   let forecast = response.data.daily;
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
@@ -73,8 +71,8 @@ function displayForecast(response) {
       forecastDayMaxTempEl.innerHTML = Math.round(forecastDay.temp.max);
     }
 
-    let forecastIconId = forecastDay.weather[0].icon;
     let forecastIcon = document.querySelector(`#forecast-icon-${index}`);
+    let forecastIconId = forecastDay.weather[0].icon;
 
     getForecastIcon(forecastIconId, forecastIcon);
   });
@@ -120,18 +118,21 @@ function getIcon(weatherIconId, weatherIcon) {
 }
 
 function cityWeather(response) {
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
   let low = Math.round(response.data.main.temp_min);
   let weatherDescription = response.data.weather[0].description;
+  let weatherIcon = document.querySelector("#currentWeather");
   let weatherIconId = response.data.weather[0].icon;
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let lowestTemp = document.querySelector("#lowTemp");
   let description = document.querySelector("h6");
-  let weatherIcon = document.querySelector("#currentWeather");
+
   lowestTemp.innerHTML = `${low}`;
   currentTemp.innerHTML = `${temperature}`;
   currentWindspeed.innerHTML = `${windspeed}km/h`;
@@ -153,19 +154,21 @@ function cityWeather(response) {
 }
 
 function myLocationWeather(response) {
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
   let low = Math.round(response.data.main.temp_min);
   let weatherDescription = response.data.weather[0].description;
   let weatherIconId = response.data.weather[0].icon;
+  let weatherIcon = document.querySelector("#currentWeather");
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
   let currentTemp = document.querySelector("#currentTemp");
   let myLocation = document.querySelector("#selectedCity");
   let lowestTemp = document.querySelector("#lowTemp");
   let description = document.querySelector("h6");
-  let weatherIcon = document.querySelector("#currentWeather");
 
   lowestTemp.innerHTML = `${low}`;
   currentTemp.innerHTML = `${temperature}`;
@@ -215,11 +218,14 @@ function showKLWeather() {
 }
 
 function KLWeather(response) {
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
   let low = Math.round(response.data.main.temp_min);
   let weatherDescription = response.data.weather[0].description;
+  let weatherIcon = document.querySelector("#currentWeather");
   let weatherIconId = response.data.weather[0].icon;
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
@@ -227,7 +233,6 @@ function KLWeather(response) {
   let myLocation = document.querySelector("#selectedCity");
   let lowestTemp = document.querySelector("#lowTemp");
   let description = document.querySelector("h6");
-  let weatherIcon = document.querySelector("#currentWeather");
 
   lowestTemp.innerHTML = `${low}`;
   currentTemp.innerHTML = `${temperature}`;
@@ -263,11 +268,14 @@ function showLondonWeather() {
 }
 
 function londonWeather(response) {
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
   let low = Math.round(response.data.main.temp_min);
   let weatherDescription = response.data.weather[0].description;
+  let weatherIcon = document.querySelector("#currentWeather");
   let weatherIconId = response.data.weather[0].icon;
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
@@ -275,7 +283,6 @@ function londonWeather(response) {
   let myLocation = document.querySelector("#selectedCity");
   let lowestTemp = document.querySelector("#lowTemp");
   let description = document.querySelector("h6");
-  let weatherIcon = document.querySelector("#currentWeather");
 
   lowestTemp.innerHTML = `${low}`;
   currentTemp.innerHTML = `${temperature}`;
@@ -302,11 +309,14 @@ let londonButton = document.querySelector("#london");
 londonButton.addEventListener("click", showLondonWeather);
 
 function defaultCity(response) {
+  celciusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
   let temperature = Math.round(response.data.main.temp);
   let windspeed = Math.round(response.data.wind.speed);
   let humidity = Math.round(response.data.main.humidity);
   let low = Math.round(response.data.main.temp_min);
   let weatherDescription = response.data.weather[0].description;
+  let weatherIcon = document.querySelector("#currentWeather");
   let weatherIconId = response.data.weather[0].icon;
   let currentWindspeed = document.querySelector("#windSpeed");
   let currentHumidity = document.querySelector("#humidityPercentage");
@@ -314,7 +324,6 @@ function defaultCity(response) {
   let defaultCity = document.querySelector("#selectedCity");
   let lowestTemp = document.querySelector("#lowTemp");
   let description = document.querySelector("h6");
-  let weatherIcon = document.querySelector("#currentWeather");
 
   lowestTemp.innerHTML = `${low}`;
   currentTemp.innerHTML = `${temperature}`;
@@ -426,25 +435,25 @@ timeNow.innerHTML = formattedTime;
 function nightTheme() {
   let container = document.querySelector(".container");
   let body = document.querySelector("body");
-  let h6 = document.querySelector("h6");
+  let weatherWrittenDescription = document.querySelector("h6");
   let selectedCity = document.querySelector(".selectedCity");
-  let timeNow = document.querySelector(".timeNow");
-  let h2 = document.querySelector("h2");
+  let currentTime = document.querySelector(".timeNow");
+  let dateAtLocation = document.querySelector("h2");
 
   if (hours >= 19 || hours < 6) {
     container.classList.add("night-theme");
     body.classList.add("night-theme");
-    h6.classList.add("night-theme");
-    h2.classList.add("night-theme");
+    weatherWrittenDescription.classList.add("night-theme");
+    dateAtLocation.classList.add("night-theme");
     selectedCity.classList.add("night-theme");
-    timeNow.classList.add("night-theme");
+    currentTime.classList.add("night-theme");
   } else {
     container.classList.remove("night-theme");
     body.classList.remove("night-theme");
-    h6.classList.remove("night-theme");
+    weatherWrittenDescription.classList.remove("night-theme");
     selectedCity.classList.remove("night-theme");
-    timeNow.classList.remove("night-theme");
-    h2.classList.remove("night-theme");
+    currentTime.classList.remove("night-theme");
+    dateAtLocation.classList.remove("night-theme");
   }
 }
 
