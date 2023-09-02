@@ -440,7 +440,7 @@ function nightTheme() {
   let currentTime = document.querySelector(".timeNow");
   let dateAtLocation = document.querySelector("h2");
 
-  if (hours >= 15 || hours < 6) {
+  if (hours >= 19 || hours < 6) {
     container.classList.add("night-theme");
     body.classList.add("night-theme");
     weatherWrittenDescription.classList.add("night-theme");

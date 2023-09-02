@@ -3,15 +3,15 @@ body {
 }
 .container {
   border: 3px solid #00bbf0;
-  max-width: 100%;
+  max-width: 700px;
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 20px;
-  width: 700px;
+  width: 100%;
   font-family: "Sniglet", cursive;
   color: white;
   background-image: url(rainbow3.jpg);
-  background-size: 200%;
+  background-size: cover;
   border-radius: 10px;
 }
 
@@ -296,7 +296,7 @@ h6 {
   color: #430f58;
   position: relative;
   bottom: 345px;
-  left: 630px;
+  left: 650px;
   font-family: "Sniglet", cursive;
 }
 
@@ -308,26 +308,28 @@ h6 {
   background-image: url(nightcity2.jpg);
   color: #7d7b90;
   border: 3px solid #6643b5;
+  background-size: 200%;
+  background-repeat: no-repeat;
 }
 
 .night-theme .selectedCity {
   color: #8594e4;
-  background-color: none;
+  background: none;
 }
 
 .night-theme .timeNow {
   color: #8594e4;
-  background-color: none;
+  background: none;
 }
 
 .night-theme h2 {
   color: #8594e4;
-  background-color: none;
+  background: none;
 }
 
 .night-theme h6 {
   color: #8594e4;
-  background-color: none;
+  background: none;
 }
 .night-theme button {
   color: purple;
