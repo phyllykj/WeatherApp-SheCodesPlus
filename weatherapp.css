@@ -144,8 +144,8 @@ button:hover {
 .tempChangeLinks {
   font-size: 26px;
   position: relative;
-  bottom: 250px;
-  left: 370px;
+  bottom: 280px;
+  left: 400px;
 }
 
 #fahrenheit-link {
@@ -295,8 +295,8 @@ ul {
 h6 {
   color: #430f58;
   position: relative;
-  bottom: 345px;
-  left: 770px;
+  bottom: 210px;
+  left: 320px;
   font-family: "Sniglet", cursive;
 }
 
